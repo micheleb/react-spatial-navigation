@@ -1,5 +1,3 @@
-const ELEMENT_NODE = 1;
-
 const getRect = (node) => {
   const r = node.getBoundingClientRect();
 
