@@ -1,23 +1,13 @@
 const ELEMENT_NODE = 1;
 
 const getRect = (node) => {
-  let {offsetParent} = node;
-  const height = node.offsetHeight;
-  const width = node.offsetWidth;
-  let left = node.offsetLeft;
-  let top = node.offsetTop;
-
-  while (offsetParent && offsetParent.nodeType === ELEMENT_NODE) {
-    left += offsetParent.offsetLeft - offsetParent.scrollLeft;
-    top += offsetParent.offsetTop - offsetParent.scrollTop;
-    ({offsetParent} = offsetParent);
-  }
+  const r = node.getBoundingClientRect();
 
   return {
-    height,
-    left,
-    top,
-    width
+    height: r.height,
+    left: r.left,
+    top: r.top,
+    width: r.width
   };
 };
 
